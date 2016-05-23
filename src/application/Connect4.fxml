@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Connect4Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6b3503" height="600.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="50.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="150.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="250.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="350.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="550.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="650.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="150.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="450.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="250.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="550.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="450.0" layoutY="350.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="100.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="200.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="300.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="400.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="500.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="600.0" layoutX="600.0" onMouseEntered="#selectColumn" onMouseExited="#selectColumn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" />
+   </children>
+</AnchorPane>
