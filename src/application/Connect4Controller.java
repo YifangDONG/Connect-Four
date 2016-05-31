@@ -1,8 +1,12 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.tk.Toolkit;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -21,13 +25,74 @@ public class Connect4Controller implements Initializable {
 	Text text;
 	@FXML
 	Pane pane;
+
 	private Connect4Board board = new Connect4Board();
-	private boolean player = true; //'x'
+	private Connection con = new Connection();
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		if(!con.connect()) con.initializeServer();
+		Chat chat = new Chat();
+		new Thread(chat).start();
 	}
-	
+	private class Chat implements Runnable {
+
+		@Override
+		public void run() {
+			if(!con.isAccepted()&&!con.getPlayer()) {
+				con.listenForServerRequest();
+			}			
+			while(true) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				sync();
+			}
+		}
+	}
+	private void draw(int column, char piece, Color color) {
+		int row = 5 - board.play(column, piece);
+		Circle circle = new Circle(50);
+		circle.setCenterX(50);
+		circle.setCenterY(50);
+		circle.setLayoutX(column*100);
+		circle.setLayoutY(row*100);
+		circle.setFill(color);
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {	
+				pane.getChildren().add(circle);
+			}
+		});
+	}
+	private void sync() {
+		
+		if(!con.getYourturn()) {
+			try {
+				int column = con.getDis().readInt();
+//				con.getSocket().shutdownInput();
+				if(!board.isWin('x')&&!board.isWin('o')) {
+					if(con.getPlayer()) {
+						draw(column,'x',Color.RED);
+						if(board.isWin('x')) {
+							text.setText("The red wins");
+						}
+					}
+					else {
+						draw(column,'o',Color.BLUE);
+						if(board.isWin('o')) {
+							text.setText("The blue wins");
+						}
+					}
+				}
+				con.setYourturn(true);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	@FXML
 	public void selectColumn(Event e) {
 		if(e.getEventType().getName().equals("MOUSE_ENTERED")) {
@@ -40,35 +105,34 @@ public class Connect4Controller implements Initializable {
 	@FXML
 	public void play(Event e) {
 		int column = (int)((Rectangle)e.getSource()).getLayoutX()/100;
-		if(!board.isWin('x')&&!board.isWin('o')) {
-			if(player) {
-				int row = 5 - board.play(column, 'x');
-				player = false;
-				Circle circle = new Circle(50);
-				circle.setCenterX(50);
-				circle.setCenterY(50);
-				circle.setLayoutX(column*100);
-				circle.setLayoutY(row*100);
-				circle.setFill(Color.RED);
-				pane.getChildren().add(circle);
+		if(con.isAccepted()&&con.getYourturn()) {
+			if(!board.isWin('x')&&!board.isWin('o')) {
+				if(con.getPlayer()) {
+					draw(column,'o',Color.BLUE);
+				}
+				else {
+					draw(column,'x',Color.RED);
+				}
+				con.setYourturn(false);
 				if(board.isWin('x')) {
 					text.setText("The red wins");
 				}
-			}
-			else {
-				int row = 5 - board.play(column, 'o');
-				player = true;
-				Circle circle = new Circle(50);
-				circle.setCenterX(50);
-				circle.setCenterY(50);
-				circle.setLayoutX(column*100);
-				circle.setLayoutY(row*100);
-				circle.setFill(Color.BLUE);
-				pane.getChildren().add(circle);
-				if(board.isWin('o')) {
+				else if(board.isWin('o')) {
 					text.setText("The blue wins");
 				}
+				else if(!board.free_space_in_board()) {
+					text.setText("Non one wins");
+				}
+				
+				try {
+					con.getDos().writeInt(column);
+					con.getDos().flush();
+//					con.getSocket().shutdownOutput();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
+			
 		}
 	}
 }
